@@ -8,11 +8,10 @@
 
     <LinearLayout
             android:layout_width="match_parent"
-                  android:gravity="center"
-                  android:layout_height="match_parent" android:visibility="visible"
-                  android:orientation="vertical"
-                  android:id="@+id/container"
-    >
+            android:gravity="center"
+            android:layout_height="match_parent" android:visibility="visible"
+            android:orientation="vertical"
+            android:id="@+id/container">
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -22,23 +21,21 @@
                 android:text="Refresh"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/button2"
-        />
+                android:id="@+id/button2"/>
         <View
                 android:id="@+id/divider"
                 android:layout_width="match_parent"
                 android:layout_height="5sp"
-
                 android:background="?android:attr/listDivider"
                 android:layout_below="@id/text2"/>
         <TextView
                 android:text="Connectivity Manager"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView" android:layout_below="@id/divider"/>
+                android:id="@+id/textView"
+                android:layout_below="@id/divider"/>
         <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
-
     </LinearLayout>
 </ScrollView>
