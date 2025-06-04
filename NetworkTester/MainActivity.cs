@@ -32,11 +32,11 @@ public class MainActivity : Activity
   private void CheckWifiNetwork()
   {
     ConnectivityManager connectivityManager = (ConnectivityManager)GetSystemService(ConnectivityService);
-    LogProperties(connectivityManager);
+    var list = LogProperties(connectivityManager);
     Network activeNetwork = connectivityManager.ActiveNetwork;
     NetworkCapabilities networkCapabilities = connectivityManager.GetNetworkCapabilities(activeNetwork);
 
-    var list = LogProperties(networkCapabilities);
+    list.AddRange(LogProperties(networkCapabilities));
     RecyclerView recycler = FindViewById<RecyclerView>(ResourceConstant.Id.recyler);
 
     recycler.SetAdapter(new InfoAdapter(list.ToArray()));
