@@ -2,6 +2,7 @@ using _Microsoft.Android.Resource.Designer;
 using Android.Net;
 using Android.Util;
 using Android.Views;
+using AndroidX.RecyclerView.Widget;
 using System.Reflection;
 
 namespace NetworkTester;
@@ -35,7 +36,13 @@ public class MainActivity : Activity
     Network activeNetwork = connectivityManager.ActiveNetwork;
     NetworkCapabilities networkCapabilities = connectivityManager.GetNetworkCapabilities(activeNetwork);
 
-    LogProperties(networkCapabilities);
+    var list = LogProperties(networkCapabilities);
+    RecyclerView recycler = new RecyclerView(ApplicationContext);
+
+    recycler.SetAdapter(new InfoAdapter(list.ToArray()));
+    recycler.SetLayoutManager(new LinearLayoutManager(ApplicationContext));
+    FindViewById<LinearLayout>(ResourceConstant.Id.container).AddView(recycler);
+
 
     if (networkCapabilities != null && networkCapabilities.HasTransport(TransportType.Wifi))
     {
@@ -43,16 +50,15 @@ public class MainActivity : Activity
       wifiName = networkCapabilities.SignalStrength.ToString();
     }
   }
-  private void LogProperties(Object? obj)
+  private List<string> LogProperties(Object? obj)
   {
+    List<string> result = new List<string>();
     LinearLayout rootView = FindViewById<LinearLayout>(ResourceConstant.Id.container);
     foreach (PropertyInfo property in obj.GetType().GetProperties())
     {
       Log.Debug("MainActivity", $"{obj.GetType().Name} {property.Name}: {property.GetValue(obj)}");
-      TextView view = new TextView(Application.Context);
-      view.Text = $"{obj.GetType().Name} {property.Name}: {property.GetValue(obj)}";
-      view.LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent);
-      rootView.AddView(view);
+      result.Add($"{obj.GetType().Name} {property.Name}: {property.GetValue(obj)}");
     }
+    return result;
   }
 }

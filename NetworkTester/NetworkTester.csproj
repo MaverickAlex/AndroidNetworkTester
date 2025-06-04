@@ -17,4 +17,8 @@
     <ItemGroup>
       <Folder Include="Model\" />
     </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Xamarin.AndroidX.RecyclerView" Version="1.4.0.1" />
+      <PackageReference Include="Xamarin.AndroidX.RecyclerView.Selection" Version="1.1.0.26" />
+    </ItemGroup>
 </Project>
