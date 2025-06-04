@@ -1,0 +1,18 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkTester", "NetworkTester\NetworkTester.csproj", "{3066CF5B-0815-4523-BF36-EA28FC0E107F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3066CF5B-0815-4523-BF36-EA28FC0E107F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3066CF5B-0815-4523-BF36-EA28FC0E107F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3066CF5B-0815-4523-BF36-EA28FC0E107F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3066CF5B-0815-4523-BF36-EA28FC0E107F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3066CF5B-0815-4523-BF36-EA28FC0E107F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3066CF5B-0815-4523-BF36-EA28FC0E107F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
