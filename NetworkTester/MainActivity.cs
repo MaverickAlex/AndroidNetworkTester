@@ -20,7 +20,7 @@ public class MainActivity : Activity
     // Set our view from the "main" layout resource
     SetContentView(Resource.Layout.activity_main);
 
-    Button? button =  FindViewById<Button>(ResourceConstant.Id.button2);
+    Button? button =  FindViewById<Button>(ResourceConstant.Id.btnRefresh);
 
     button.Click += delegate
     {
@@ -37,11 +37,10 @@ public class MainActivity : Activity
     NetworkCapabilities networkCapabilities = connectivityManager.GetNetworkCapabilities(activeNetwork);
 
     var list = LogProperties(networkCapabilities);
-    RecyclerView recycler = new RecyclerView(ApplicationContext);
+    RecyclerView recycler = FindViewById<RecyclerView>(ResourceConstant.Id.recyler);
 
     recycler.SetAdapter(new InfoAdapter(list.ToArray()));
     recycler.SetLayoutManager(new LinearLayoutManager(ApplicationContext));
-    FindViewById<LinearLayout>(ResourceConstant.Id.container).AddView(recycler);
 
 
     if (networkCapabilities != null && networkCapabilities.HasTransport(TransportType.Wifi))
@@ -53,7 +52,6 @@ public class MainActivity : Activity
   private List<string> LogProperties(Object? obj)
   {
     List<string> result = new List<string>();
-    LinearLayout rootView = FindViewById<LinearLayout>(ResourceConstant.Id.container);
     foreach (PropertyInfo property in obj.GetType().GetProperties())
     {
       Log.Debug("MainActivity", $"{obj.GetType().Name} {property.Name}: {property.GetValue(obj)}");

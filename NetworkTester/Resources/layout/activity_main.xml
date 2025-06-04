@@ -1,41 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
-            android:layout_height="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+              android:layout_height="match_parent"
+              android:layout_width="match_parent"
+              android:gravity="center"
+              android:layout_marginTop="?android:attr/actionBarSize"
+              android:orientation="vertical">
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_text"/>
+    <Button
+            android:text="Refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnRefresh"/>
+    <View
+            android:id="@+id/divider"
             android:layout_width="match_parent"
-            android:layout_marginTop="?android:attr/actionBarSize">
-
-
-    <LinearLayout
+            android:layout_height="5sp"
+            android:background="?android:attr/listDivider"/>
+    <ScrollView
             android:layout_width="match_parent"
             android:gravity="center"
             android:layout_height="match_parent" android:visibility="visible"
             android:orientation="vertical"
             android:id="@+id/container">
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/app_text"
-                android:id="@+id/text2"/>
-        <Button
-                android:text="Refresh"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/button2"/>
-        <View
-                android:id="@+id/divider"
-                android:layout_width="match_parent"
-                android:layout_height="5sp"
-                android:background="?android:attr/listDivider"
-                android:layout_below="@id/text2"/>
-        <TextView
-                android:text="Connectivity Manager"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView"
-                android:layout_below="@id/divider"/>
         <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-    </LinearLayout>
-</ScrollView>
+                android:layout_height="match_parent"
+                android:id="@+id/recyler"
+         />
+    </ScrollView>
+</LinearLayout>
