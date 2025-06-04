@@ -1,4 +1,5 @@
-﻿using Android.Runtime;
+﻿using _Microsoft.Android.Resource.Designer;
+using Android.Runtime;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
 
@@ -10,10 +11,8 @@ public class InfoItem: RecyclerView.ViewHolder
   public TextView? Value { get; set; }
   public InfoItem(View itemView) : base(itemView)
   {
-    Name = new TextView(itemView.Context);
-    Value = new TextView(itemView.Context);
-    Name.LayoutParameters = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent);
-    Value.LayoutParameters = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent);
+    Name = itemView.FindViewById<TextView>(ResourceConstant.Id.name);
+    Value = itemView.FindViewById<TextView>(ResourceConstant.Id.value);
     Name.Text = "Name";
     Value.Text = "Value";
 
